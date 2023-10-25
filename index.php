@@ -22,8 +22,8 @@
 
     foreach($listarfuncionarios as $row_usuario){
 
-        var_dump($row_usuario);
-        //extract($row_usuario);
+        //var_dump($row_usuario);
+        extract($row_usuario);
     } 
 
 
