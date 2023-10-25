@@ -20,6 +20,12 @@
 
     echo $listarfuncionarios;
 
+    foreach($result_usuarios as $row_usuario){
+
+        var_dump($row_usuario);
+        //extract($row_usuario);
+    } 
+
 
     ?>
 </body>
