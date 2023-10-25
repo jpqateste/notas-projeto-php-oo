@@ -10,7 +10,7 @@ class Conn
 
     public $connect = null;
 
-    public function conecta(){
+    public function conectar(){
 
         try {
 
