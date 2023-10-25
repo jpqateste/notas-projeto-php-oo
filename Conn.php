@@ -2,10 +2,10 @@
 
 class Conn
 {
-    public $host = "";
-    public $user = "";
+    public $host = "localhost";
+    public $user = "root";
     public $pass = "";
-    public $dbname = "";
+    public $dbname = "bweb";
     public $port = 3306;
 
     public $connect = null;

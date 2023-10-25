@@ -18,7 +18,7 @@ class Usuarios{
 
 
 
-        return "<br><strong>Lista de funcionários</strong><br> <ol> <li>Fulano</li> <li>Beltrano</li> <li>Cicrano</li> </ol>";
+        //return "<br><strong>Lista de funcionários</strong><br> <ol> <li>Fulano</li> <li>Beltrano</li> <li>Cicrano</li> </ol>";
     }
 
 
