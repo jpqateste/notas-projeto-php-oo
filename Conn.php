@@ -15,7 +15,7 @@ class Conn
         try {
 
             $this-> connect = new PDO("mysql:host=".$this->host . ";port=" . $this->port . ";dbname=" . $this->dbname, $this->user, $this->pass);
-            echo "Erro: Conexão realizada com sucesso!";
+            echo "Conexão realizada com sucesso!";
             return $this->connect;
 
         } catch (Exception $err) {

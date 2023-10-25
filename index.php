@@ -18,9 +18,9 @@
     $funcionarios = new Usuarios();
     $listarfuncionarios = $funcionarios->listar();
 
-    echo $listarfuncionarios;
+    //echo $listarfuncionarios;
 
-    foreach($result_usuarios as $row_usuario){
+    foreach($listarfuncionarios as $row_usuario){
 
         var_dump($row_usuario);
         //extract($row_usuario);
