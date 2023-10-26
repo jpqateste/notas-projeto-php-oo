@@ -14,6 +14,7 @@
     require './Cliente.php';
     require './ClienteAluno.php';
     require './ClientePJ.php';
+    require './MetodoPagamento.php';
 
     
 
@@ -52,6 +53,13 @@
     $consultaDadosPJ = $clientePJ->exibirDadosPJ();
 
     echo $consultaDadosPJ;
+
+
+    echo "<hr>";
+
+    $MPagamento = new MetodoPagamento(200.00, "PIX");
+    $MsgCobranca = $MPagamento->verValor();
+    echo $MsgCobranca;
 
 
     echo "<hr>";
