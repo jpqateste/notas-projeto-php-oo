@@ -1,6 +1,6 @@
 <?php
 
-class MetodoPagamento{
+abstract class MetodoPagamento{
 
     public float $valor;
     public string $tipo;

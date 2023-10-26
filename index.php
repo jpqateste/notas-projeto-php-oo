@@ -15,6 +15,8 @@
     require './ClienteAluno.php';
     require './ClientePJ.php';
     require './MetodoPagamento.php';
+    require './MetodoPagamentoPIX.php';
+    require './MetodoPagamentoBoleto.php';
 
     
 
@@ -56,11 +58,23 @@
 
 
     echo "<hr>";
-
+/*
     $MPagamento = new MetodoPagamento(200.00, "PIX");
     $MsgCobranca = $MPagamento->verValor();
     echo $MsgCobranca;
 
+    echo "<hr>";
+
+*/    
+    $MPagamentoPIX = new MetodoPagamentoPIX(300, "PIX");
+    $valorCobrancaPIX = $MPagamentoPIX->calcularDescontoPIX();
+    echo $valorCobrancaPIX;
+
+    echo "<hr>";
+
+    $MPagamentoBoleto = new MetodoPagamentoBoleto(300, "Boleto");
+    $valorCobrancaBoleto = $MPagamentoBoleto->calcularJuros();
+    echo $valorCobrancaBoleto;
 
     echo "<hr>";
 
