@@ -7,11 +7,13 @@
 </head>
 <body>
     <h1><center><u>ATIVIDADES E NOTAS DO CURSO DE PHP OO</u></center></h1>
+    
     <?php
     require './Usuario.php';
     require './Usuarios.php';
     require './Cliente.php';
     require './ClienteAluno.php';
+    require './ClientePJ.php';
 
     
 
@@ -40,12 +42,21 @@
 
     echo $consultaDadosAlunos;
 
+    echo "<hr>";
 
+    $clientePJ = new ClientePJ;
+    $clientePJ->logradouro  = "Avenida Oceânica";
+    $clientePJ->bairro = "Ondina";
+    $clientePJ->razaoSocial = "Contoso LTDA";
+    $clientePJ->cnpj = "01234560001-09";
+    $consultaDadosPJ = $clientePJ->exibirDadosPJ();
 
-
+    echo $consultaDadosPJ;
 
 
     echo "<hr>";
+
+
     $funcionarios = new Usuarios();
     $listarfuncionarios = $funcionarios->listar();
     
