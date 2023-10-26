@@ -6,10 +6,14 @@
     <title>PHP POO</title>
 </head>
 <body>
+    <h1><center><u>ATIVIDADES E NOTAS DO CURSO DE PHP OO</u></center></h1>
     <?php
     require './Usuario.php';
     require './Usuarios.php';
     require './Cliente.php';
+    require './ClienteAluno.php';
+
+    
 
     $aluno = new Usuario();
     $msg = $aluno->cadastrar("Jonas", 35, "jonas@contoso.com");
@@ -24,6 +28,17 @@
     $consultaEndereco = $cliente->verEndereco();
 
     echo $consultaEndereco;
+
+    echo "<hr>";
+
+    $clienteAluno = new ClienteAluno;
+    $clienteAluno->logradouro  = "Avenida Paulista";
+    $clienteAluno->bairro = "Centro";
+    $clienteAluno->nome = "Amaral de Jesus";
+    $clienteAluno->cpf = "123456789";
+    $consultaDadosAlunos = $clienteAluno->exibirDadosAluno();
+
+    echo $consultaDadosAlunos;
 
 
 

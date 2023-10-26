@@ -14,6 +14,6 @@ class Usuario{
         $this->email = $email;
         $this->idade = $idade;
 
-        return "O Usuário {$this->nome}, e-mail {$this->email} e idade {$this->idade} cadastrado com sucesso!<br>";
+        return "<br>O Usuário {$this->nome}, e-mail {$this->email} e idade {$this->idade} cadastrado com sucesso!<br>";
     }
 }
