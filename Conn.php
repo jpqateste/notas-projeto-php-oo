@@ -2,7 +2,7 @@
 
 class Conn
 {
-    public $host = "localhost";
+    public $host = "10.0.0.125";
     public $user = "root";
     public $pass = "";
     public $dbname = "bweb";
