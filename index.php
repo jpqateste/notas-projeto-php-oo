@@ -66,13 +66,13 @@
     echo "<hr>";
 
 */    
-    $MPagamentoPIX = new MetodoPagamentoPIX(300, "PIX");
+    $MPagamentoPIX = new MetodoPagamentoPIX(30000, "PIX");
     $valorCobrancaPIX = $MPagamentoPIX->calcularDescontoPIX();
     echo $valorCobrancaPIX;
 
     echo "<hr>";
 
-    $MPagamentoBoleto = new MetodoPagamentoBoleto(300, "Boleto");
+    $MPagamentoBoleto = new MetodoPagamentoBoleto(300.00, "Boleto");
     $valorCobrancaBoleto = $MPagamentoBoleto->calcularJuros();
     echo $valorCobrancaBoleto;
 
