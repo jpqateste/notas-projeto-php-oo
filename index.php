@@ -93,6 +93,7 @@
         echo "ID $id <br>";
         echo "Nome $nome <br>";
         echo " E-mail $email <br>";
+        echo " Senha $pass <br>";
         echo "<hr>";
     } 
 
