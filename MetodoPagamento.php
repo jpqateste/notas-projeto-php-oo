@@ -12,6 +12,8 @@ abstract class MetodoPagamento{
         $this->tipo = $tipo;
     }
 
+    abstract function calcularJuros();
+
     public function verValor() : string
     {
         return "Valor do pagamento {$this->tipo} é R$ {$this->valor} <br>";

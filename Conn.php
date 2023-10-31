@@ -2,19 +2,19 @@
 
 class Conn
 {
-    public $host = "10.0.0.125";
-    public $user = "root";
-    public $pass = "";
-    public $dbname = "bweb";
-    public $port = 3306;
-
+    public string $db = "mysql";
+    public string $host = "10.0.0.125";
+    public string $user = "root";
+    public string $pass = "";
+    public string $dbname = "bweb";
+    public int $port = 3306;
 
     //Dados conexão POSTRGRES
     //$user = "postgres"; public $pass = "admin"; $port = 5432;
 
     public $connect = null;
 
-    public function conectar(){
+    public function connectDB(){
 
         try {
 
