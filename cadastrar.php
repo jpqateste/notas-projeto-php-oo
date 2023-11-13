@@ -22,6 +22,7 @@ $createUser->formData = $formData;
 $valida = $createUser->create();
 
 if ($valida) {
+    
     echo'Cadastro realizado com sucesso!';
 
 }else{ echo'Cadastro falhou!'; }
