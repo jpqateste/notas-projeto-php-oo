@@ -18,7 +18,9 @@ class Conn
 
         try {
 
-            $this-> connect = new PDO("mysql:host=".$this->host . ";port=" . $this->port . ";dbname=" . $this->dbname, $this->user, $this->pass);
+            $this-> connect = new PDO('sqlite:file:bweb.db');
+
+            //$this-> connect = new PDO("mysql:host=".$this->host . ";port=" . $this->port . ";dbname=" . $this->dbname, $this->user, $this->pass);
             //Conexão POSTGRESQL
             //$this-> connect = new PDO("pgsql:host=".$this->host . ";port=" . $this->port . ";dbname=" . $this->dbname, $this->user, $this->pass);
             echo "Conexão realizada com sucesso!";

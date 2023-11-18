@@ -1,3 +1,10 @@
+<?php
+
+session_start();
+
+ob_start();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,7 +30,8 @@ $valida = $createUser->create();
 
 if ($valida) {
     
-    echo'Cadastro realizado com sucesso!';
+    $_SESSION['msg'] = "<p>Cadastro realizado com sucesso!</p>";
+    header('Location: index.php');
 
 }else{ echo'Cadastro falhou!'; }
 
