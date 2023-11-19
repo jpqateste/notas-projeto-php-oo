@@ -2,6 +2,10 @@
 
 session_start();
 
+ob_start();
+
+$id = filter_input(INPUT_GET,'id', FILTER_SANITIZE_NUMBER_INT);
+
 ?>
 
 <!DOCTYPE html>
@@ -12,7 +16,7 @@ session_start();
     <title>PHP POO</title>
 </head>
 <body>
-    <h1><center><u>ATIVIDADES E NOTAS DO CURSO DE PHP OO</u></center></h1>
+    <h1><center><u>Detalhes do usuário</u></center></h1>
     
     <?php
 
@@ -23,94 +27,17 @@ session_start();
         unset($_SESSION['msg']);
     }
 
+    if(!empty($id)){
+    
     require './Usuario.php';
     require './Usuarios.php';
-    require './Cliente.php';
-    require './ClienteAluno.php';
-    require './ClientePJ.php';
-    require './MetodoPagamento.php';
-    require './MetodoPagamentoPIX.php';
-    require './MetodoPagamentoBoleto.php';
 
-    
-
-    $aluno = new Usuario();
-    $msg = $aluno->cadastrar("Jonas", 35, "jonas@contoso.com");
-
-    echo $msg;
-
-    echo "<hr>";
-
-    $cliente = new Cliente;
-    $cliente->logradouro = "Avenida Alomar";
-    $cliente->bairro = "Jardim Sul";
-    $consultaEndereco = $cliente->verEndereco();
-
-    echo $consultaEndereco;
-
-    echo "<hr>";
-
-    $clienteAluno = new ClienteAluno;
-    $clienteAluno->logradouro  = "Avenida Paulista";
-    $clienteAluno->bairro = "Centro";
-    $clienteAluno->nome = "Amaral de Jesus";
-    $clienteAluno->cpf = "123456789";
-    $consultaDadosAlunos = $clienteAluno->exibirDadosAluno();
-
-    echo $consultaDadosAlunos;
-
-    echo "<hr>";
-
-    $clientePJ = new ClientePJ;
-    $clientePJ->logradouro  = "Avenida Oceânica";
-    $clientePJ->bairro = "Ondina";
-    $clientePJ->razaoSocial = "Contoso LTDA";
-    $clientePJ->cnpj = "01234560001-09";
-    $consultaDadosPJ = $clientePJ->exibirDadosPJ();
-
-    echo $consultaDadosPJ;
+    }else{
 
 
-    echo "<hr>";
-/*
-    $MPagamento = new MetodoPagamento(200.00, "PIX");
-    $MsgCobranca = $MPagamento->verValor();
-    echo $MsgCobranca;
-
-    echo "<hr>";
-
-*/    
-    $MPagamentoPIX = new MetodoPagamentoPIX(30000, "PIX");
-    $valorCobrancaPIX = $MPagamentoPIX->calcularDescontoPIX();
-    echo $valorCobrancaPIX;
-
-    echo "<hr>";
-
-    $MPagamentoBoleto = new MetodoPagamentoBoleto(300.00, "Boleto");
-    $valorCobrancaBoleto = $MPagamentoBoleto->calcularJuros();
-    echo $valorCobrancaBoleto;
-
-    echo "<hr>";
-
-
-    $funcionarios = new Usuarios();
-    $listarfuncionarios = $funcionarios->listar();
-    
-
-    //echo $listarfuncionarios;
-
-    foreach($listarfuncionarios as $row_usuario){
-
-        //var_dump($row_usuario);
-        extract($row_usuario);
-        echo "<br>";
-        echo "ID $id <br>";
-        echo "Nome $nome <br>";
-        echo " E-mail $email <br>";
-        echo " Senha $pass <br>";
-        echo "<hr>";
-    } 
-
+        $_SESSION['msg'] = "<p style='color: #f00;'>Erro: Usuário não encontrado!</p>";
+        header("Location: index.php");
+    }
 
     ?>
 </body>
