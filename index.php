@@ -104,10 +104,10 @@ session_start();
         //var_dump($row_usuario);
         extract($row_usuario);
         echo "<br>";
-        echo "ID $id <br>";
+        #echo "ID $id <br>";
         echo "Nome $nome <br>";
         echo " E-mail $email <br>";
-        echo " Senha $pass <br>";
+        #echo " Senha $pass <br>";
         echo "<a href='view.php?id=$id'>Visualizar</a><br>";
         echo "<hr>";
     } 

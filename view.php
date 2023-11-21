@@ -32,6 +32,17 @@ $id = filter_input(INPUT_GET,'id', FILTER_SANITIZE_NUMBER_INT);
     require './Usuario.php';
     require './Usuarios.php';
 
+    $viewUser = new Usuarios();
+    $viewUser->id = "$id";
+    $valueUser=$viewUser->view();
+
+    extract($valueUser);
+    
+    echo"<br>Id: $id <br>";
+    echo"Nome: $nome <br>";
+    echo"E-mail: $email <br>";
+    echo"Senha: $pass <br>";
+
     }else{
 
 

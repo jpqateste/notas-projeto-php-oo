@@ -8,6 +8,7 @@ class Usuarios{
 
     public array $formData;
     public $connect;
+    public int $id;
 
     public function listar(){
 
@@ -47,6 +48,22 @@ class Usuarios{
             return false;   
     }
 
+
+
+}
+
+public function view()
+{
+    $conn = new Conn();
+    $this->connect = $conn->connectDB();
+    $query_view = "SELECT id, nome, email, pass 
+    FROM usuarios 
+    WHERE id=:id 
+    LIMIT 1";
+    $result_view_usuarios = $this->connect->prepare($query_view);
+    $result_view_usuarios->bindParam(':id', $this->id);
+    $result_view_usuarios->execute();
+    return $result_view_usuarios->fetch();
 
 
 }
