@@ -68,4 +68,29 @@ public function view()
 
 }
 
+public function edit()
+{
+    $conn = new Conn();
+    var_dump($this->formData);
+    $conn = new Conn();
+
+    $this->connect = $conn->connectDB();
+    $query_usuario = "UPDATE usuarios SET nome=:name, email=:email, pass=:pass WHERE id=:id";
+    $edit_usuario = $this->connect->prepare($query_usuario);
+    $edit_usuario->bindParam(':name', $this->formData['name']);
+    $edit_usuario->bindParam(':email', $this->formData['email']);
+    $edit_usuario->bindParam(':pass', $this->formData['pass']);
+    $edit_usuario->bindParam(':id', $this->formData['id']);
+    $edit_usuario->execute();
+
+    if($edit_usuario->rowCount()){
+        return true;
+    
+    }else{
+        return false;   
+    }
+
+
+}
+
 }

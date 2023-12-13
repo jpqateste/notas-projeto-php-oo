@@ -108,7 +108,11 @@ session_start();
         echo "Nome $nome <br>";
         echo " E-mail $email <br>";
         #echo " Senha $pass <br>";
-        echo "<a href='view.php?id=$id'>Visualizar</a><br>";
+        echo "<a href='view.php?id=$id'>View</a>";
+        echo" | ";
+        echo "<a href='edit.php?id=$id'>Edit</a>";
+        echo" | ";
+        echo "<a href='delete.php?id=$id'>Del</a><br>";
         echo "<hr>";
     } 
 
