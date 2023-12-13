@@ -9,14 +9,35 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PHP POO</title>
+    <title>PHP CRUD POO PDO</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
 </head>
 <body>
-    <h1><center><u>ATIVIDADES E NOTAS DO CURSO DE PHP OO</u></center></h1>
-
-    <a href="index.php">Home</a>
-     | <a href="cadastrar.php">Cadastrar</a><br>
-    
+<nav class="navtop">
+    	<div>
+    		<h1>Notas - PHP CRUD POO e PDO</h1>
+            <a href="index.php"><i class="fas fa-home"></i>Home</a>
+    		<a href="cadastrar.php"><i class="fas fa-address-book"></i>Cadastrar</a>
+    	</div>
+    </nav>
+    <div class="content">
+	<h2>Home</h2>
+	<p>Bem-vindo as minhas Notas do curso PHP CRUD POO e PDO!</p>
+</div>
+<div class="content read">
+	<h2>Lista de usuários</h2>
+	<a href="cadastrar.php" class="create-contact">Cadastrar</a>
+	<table>
+        <thead>
+            <tr>
+                <td>#</td>
+                <td>Name</td>
+                <td>Email</td>
+                <td></td>
+            </tr>
+        </thead>
+        <tbody>
     <?php
 
     if(isset($_SESSION['msg'])){
@@ -36,6 +57,40 @@ session_start();
     require './MetodoPagamentoBoleto.php';
 
     
+    $funcionarios = new Usuarios();
+    $listarfuncionarios = $funcionarios->listar();
+    
+
+    //echo $listarfuncionarios;
+
+    foreach($listarfuncionarios as $row_usuario){
+
+        //var_dump($row_usuario);
+        extract($row_usuario);
+        echo"<tr>";
+        echo"<td>$id</td>";
+        echo "<td>$nome</td>";
+        echo "<td>$email</td>";
+        echo"<td class='actions'>";
+        echo"<a href='view.php?id=$id' class='edit'><i class='fa fa-list-ul fa-xs'></i></a>";
+        echo"<a href='edit.php?id=$id' class='edit'><i class='fas fa-pen fa-xs'></i></a>";
+        echo"<a href='delete.php?id=$id' class='trash'><i class='fas fa-trash fa-xs'></i></a>";
+        echo"</td>";
+        echo"</tr>";
+        //echo "<a href='view.php?id=$id'>View</a>";
+        //echo" | ";
+        //echo "<a href='edit.php?id=$id'>Edit</a>";
+        //echo" | ";
+        //echo "<a href='delete.php?id=$id'>Del</a><br>";
+        //echo "<hr>";
+    } 
+
+    echo"</tbody>";
+    echo"</table>";
+
+    
+
+
 
     $aluno = new Usuario();
     $msg = $aluno->cadastrar("Jonas", 35, "jonas@contoso.com");
@@ -95,30 +150,7 @@ session_start();
 
     echo "<hr>";
 
-
-    $funcionarios = new Usuarios();
-    $listarfuncionarios = $funcionarios->listar();
-    
-
-    //echo $listarfuncionarios;
-
-    foreach($listarfuncionarios as $row_usuario){
-
-        //var_dump($row_usuario);
-        extract($row_usuario);
-        echo "<br>";
-        #echo "ID $id <br>";
-        echo "Nome $nome <br>";
-        echo " E-mail $email <br>";
-        #echo " Senha $pass <br>";
-        echo "<a href='view.php?id=$id'>View</a>";
-        echo" | ";
-        echo "<a href='edit.php?id=$id'>Edit</a>";
-        echo" | ";
-        echo "<a href='delete.php?id=$id'>Del</a><br>";
-        echo "<hr>";
-    } 
-
+//Base https://codeshack.io/crud-application-php-pdo-mysql/
 
     ?>
 </body>
