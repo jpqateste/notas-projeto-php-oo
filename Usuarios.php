@@ -93,4 +93,18 @@ public function edit()
 
 }
 
+public function delete()
+{
+    $conn = new Conn();
+    
+    $this->connect = $conn->connectDB();
+    $query_usuario = "DELETE FROM usuarios WHERE id=:id";
+    $delete_usuario = $this->connect->prepare($query_usuario);
+    $delete_usuario->bindParam(':id', $this->id);
+    $value = $delete_usuario->execute();
+
+    return $value;
+
+}
+
 }

@@ -13,6 +13,9 @@ session_start();
 </head>
 <body>
     <h1><center><u>ATIVIDADES E NOTAS DO CURSO DE PHP OO</u></center></h1>
+
+    <a href="index.php">Home</a>
+     | <a href="cadastrar.php">Cadastrar</a><br>
     
     <?php
 
